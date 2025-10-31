@@ -21,6 +21,7 @@
     "paths": {
       "@app/*": ["./src/app/*"],
       "@components/*": ["./src/components/*"],
+      "@constants/*": ["./src/constants/*"],
       "@i18n/*": ["./src/i18n/*"],
       "@custom-types/*": ["./src/types/*"],
       "@ui/*": ["./src/ui/*"],
