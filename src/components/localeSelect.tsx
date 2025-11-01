@@ -13,7 +13,6 @@ import { useRouter } from "next/navigation";
 
 export default function LocaleSelect() {
   const locale = useLocale();
-  console.log(locale);
   const router = useRouter();
 
   const handleChange = (value: string) => {

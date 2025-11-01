@@ -6,6 +6,7 @@ import { routing } from "@i18n/routing";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import Header from "@components/header";
+import { ApolloWrapper } from "@lib/apolloWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,15 +42,15 @@ export default async function RootLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider>
-          <>
+          <ApolloWrapper>
             <Header />
             {children}
-          </>
+          </ApolloWrapper>
         </NextIntlClientProvider>
       </body>
     </html>
