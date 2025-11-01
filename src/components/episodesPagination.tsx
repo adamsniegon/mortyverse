@@ -28,7 +28,7 @@ export function EpisodesPagination({ currentPage, totalPages }: Props) {
       <PaginationContent className="flex space-x-1">
         <PaginationItem>
           <PaginationPrevious
-            href={`/episodes?page=${currentPage - 1}`}
+            href={`/episodes/${currentPage - 1}`}
             aria-disabled={previousDisabled}
             className={cn(previousDisabled && disabledClasses)}
           />
@@ -37,7 +37,7 @@ export function EpisodesPagination({ currentPage, totalPages }: Props) {
         {pages.map((page) => (
           <PaginationItem key={page}>
             <PaginationLink
-              href={`/episodes?page=${page}`}
+              href={`/episodes/${page}`}
               className={page === currentPage ? "bg-gray-800 text-white" : ""}
             >
               {page}
@@ -47,7 +47,7 @@ export function EpisodesPagination({ currentPage, totalPages }: Props) {
 
         <PaginationItem>
           <PaginationNext
-            href={`/episodes?page=${currentPage + 1}`}
+            href={`/episodes/${currentPage + 1}`}
             aria-disabled={nextDisabled}
             className={cn(nextDisabled && disabledClasses)}
           />

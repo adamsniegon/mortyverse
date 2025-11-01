@@ -8,3 +8,5 @@ export const locales = {
     language: "Čeština",
   },
 };
+
+export const localeCodes = Object.values(locales).map((locale) => locale.code);
