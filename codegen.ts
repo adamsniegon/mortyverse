@@ -1,12 +1,12 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
 
 const config: CodegenConfig = {
+  overwrite: true,
   schema: "https://rickandmortyapi.com/graphql",
   documents: "./src/graphql/**/*.graphql",
   generates: {
     "./src/graphql/generated/": {
       preset: "client",
-      plugins: ["typescript", "typescript-operations"],
       config: {
         gqlTagName: "gql",
         skipTypename: false,
@@ -14,7 +14,6 @@ const config: CodegenConfig = {
       },
     },
   },
-  ignoreNoDocuments: false,
 };
 
 export default config;
