@@ -12,5 +12,8 @@ export const routing = defineRouting({
   },
   pathnames: {
     "/": "/",
+    "/episode/[part]": {
+      "cs-CZ": "/epizoda/[part]",
+    },
   },
 });

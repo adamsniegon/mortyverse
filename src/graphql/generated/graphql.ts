@@ -226,6 +226,7 @@ export type GetEpisodesQuery = {
       id?: string | null;
       name?: string | null;
       air_date?: string | null;
+      episode?: string | null;
     } | null> | null;
   } | null;
 };
@@ -289,6 +290,10 @@ export const GetEpisodesDocument = {
                       {
                         kind: "Field",
                         name: { kind: "Name", value: "air_date" },
+                      },
+                      {
+                        kind: "Field",
+                        name: { kind: "Name", value: "episode" },
                       },
                     ],
                   },

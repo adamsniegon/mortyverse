@@ -14,10 +14,10 @@ import type { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
-  "query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n    }\n  }\n}": typeof types.GetEpisodesDocument;
+  "query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n      episode\n    }\n  }\n}": typeof types.GetEpisodesDocument;
 };
 const documents: Documents = {
-  "query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n    }\n  }\n}":
+  "query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n      episode\n    }\n  }\n}":
     types.GetEpisodesDocument,
 };
 
@@ -39,8 +39,8 @@ export function graphql(source: string): unknown;
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: "query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n    }\n  }\n}",
-): (typeof documents)["query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n    }\n  }\n}"];
+  source: "query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n      episode\n    }\n  }\n}",
+): (typeof documents)["query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n      episode\n    }\n  }\n}"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

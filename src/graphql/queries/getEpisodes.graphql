@@ -9,6 +9,7 @@ query GetEpisodes($page: Int!) {
       id
       name
       air_date
+      episode
     }
   }
 }

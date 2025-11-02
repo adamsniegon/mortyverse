@@ -8,12 +8,12 @@ interface ITypography extends React.HTMLAttributes<HTMLElement> {
 }
 
 const variantStyles: Record<TTypographyVariants, string> = {
-  h1: "text-5xl xl:text-6xl font-title font-semibold font-serif",
-  h2: "text-4xl xl:text-5xl font-title font-semibold font-serif",
-  h3: "text-3xl xl:text-4xl font-title font-semibold font-serif",
-  h4: "text-2xl xl:text-3xl font-title font-semibold font-serif",
-  h5: "text-xl xl:text-2xl font-title font-semibold font-serif",
-  h6: "text-lg xl:text-xl font-title font-semibold font-serif",
+  h1: "text-5xl xl:text-6xl font-title font-semibold font-sans",
+  h2: "text-4xl xl:text-5xl font-title font-semibold font-sans",
+  h3: "text-3xl xl:text-4xl font-title font-semibold font-sans",
+  h4: "text-2xl xl:text-3xl font-title font-semibold font-sans",
+  h5: "text-xl xl:text-2xl font-title font-semibold font-sans",
+  h6: "text-lg xl:text-xl font-title font-semibold font-sans",
   body: "text-base font-normal font-sans",
   small: "text-sm font-normal font-sans",
 };

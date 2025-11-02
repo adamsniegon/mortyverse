@@ -5,12 +5,17 @@ import {
   GetEpisodesQuery,
   GetEpisodesQueryVariables,
 } from "@graphql/generated/graphql";
+import { getLocale } from "next-intl/server";
+import { Link } from "@i18n/navigation";
+import EpisodeCard from "@ui/episodeCard";
+import Container from "@ui/container";
 
 interface Props {
   page: number;
 }
 
 export default async function EpisodesList({ page }: Props) {
+  const locale = await getLocale();
   const { data, error } = await query<
     GetEpisodesQuery,
     GetEpisodesQueryVariables
@@ -22,22 +27,34 @@ export default async function EpisodesList({ page }: Props) {
   if (error) {
     return null;
   }
+  console.log(locale);
 
   const totalPages = data?.episodes?.info?.pages ?? 1;
 
   return (
-    <>
-      <ul>
-        {data?.episodes?.results?.map((ep) => (
-          <li key={ep?.id}>
-            <h2>{ep?.name}</h2>
-            <p>{ep?.air_date}</p>
+    <Container>
+      <ul className="grid gap-8">
+        {data?.episodes?.results?.map((episode) => (
+          <li key={episode?.id}>
+            <Link
+              href={{
+                pathname: "/episode/[part]",
+                params: { part: episode?.episode ?? "" },
+              }}
+            >
+              <EpisodeCard
+                name={episode?.name}
+                air_date={episode?.air_date}
+                episode={episode?.episode}
+                locale={locale}
+              />
+            </Link>
           </li>
         ))}
       </ul>
       {!!totalPages && (
         <EpisodesPagination currentPage={page} totalPages={totalPages} />
       )}
-    </>
+    </Container>
   );
 }
