@@ -1,0 +1,20 @@
+query getEpisode($episode: String!) {
+  episodes(filter: { episode: $episode }) {
+    results {
+      id
+      name
+      air_date
+      episode
+      characters {
+        id
+        name
+        image
+        species
+        gender
+        origin {
+          name
+        }
+      }
+    }
+  }
+}

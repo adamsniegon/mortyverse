@@ -7,6 +7,7 @@ import { setRequestLocale } from "next-intl/server";
 import Header from "@components/header";
 import { ApolloWrapper } from "@lib/apolloWrapper";
 import "./globals.css";
+import { ReactNode } from "react";
 
 const orbitronSans = Orbitron({
   variable: "--font-orbitron-sans",
@@ -26,7 +27,7 @@ export default async function RootLayout({
   children,
   params,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;

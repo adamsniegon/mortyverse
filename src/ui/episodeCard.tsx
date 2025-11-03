@@ -4,7 +4,7 @@ import { cn } from "@utils/mergeClasses";
 import { ComponentProps } from "react";
 import Typography from "./typography";
 
-interface IEpiodeCard
+interface IEpisodeCard
   extends ComponentProps<"div">,
     Pick<Episode, "name" | "air_date" | "episode"> {
   locale: string;
@@ -17,7 +17,7 @@ export default function EpisodeCard({
   episode,
   locale,
   ...props
-}: IEpiodeCard) {
+}: IEpisodeCard) {
   return (
     <div
       className={cn(

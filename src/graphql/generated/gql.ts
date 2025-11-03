@@ -14,9 +14,15 @@ import type { TypedDocumentNode as DocumentNode } from "@graphql-typed-document-
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 type Documents = {
+  "query getAllEpisodeCodes {\n  episodes {\n    results {\n      episode\n    }\n  }\n}": typeof types.GetAllEpisodeCodesDocument;
+  "query getEpisode($episode: String!) {\n  episodes(filter: {episode: $episode}) {\n    results {\n      id\n      name\n      air_date\n      episode\n      characters {\n        id\n        name\n        image\n        species\n        gender\n        origin {\n          name\n        }\n      }\n    }\n  }\n}": typeof types.GetEpisodeDocument;
   "query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n      episode\n    }\n  }\n}": typeof types.GetEpisodesDocument;
 };
 const documents: Documents = {
+  "query getAllEpisodeCodes {\n  episodes {\n    results {\n      episode\n    }\n  }\n}":
+    types.GetAllEpisodeCodesDocument,
+  "query getEpisode($episode: String!) {\n  episodes(filter: {episode: $episode}) {\n    results {\n      id\n      name\n      air_date\n      episode\n      characters {\n        id\n        name\n        image\n        species\n        gender\n        origin {\n          name\n        }\n      }\n    }\n  }\n}":
+    types.GetEpisodeDocument,
   "query GetEpisodes($page: Int!) {\n  episodes(page: $page) {\n    info {\n      pages\n      next\n      prev\n    }\n    results {\n      id\n      name\n      air_date\n      episode\n    }\n  }\n}":
     types.GetEpisodesDocument,
 };
@@ -35,6 +41,18 @@ const documents: Documents = {
  */
 export function graphql(source: string): unknown;
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: "query getAllEpisodeCodes {\n  episodes {\n    results {\n      episode\n    }\n  }\n}",
+): (typeof documents)["query getAllEpisodeCodes {\n  episodes {\n    results {\n      episode\n    }\n  }\n}"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: "query getEpisode($episode: String!) {\n  episodes(filter: {episode: $episode}) {\n    results {\n      id\n      name\n      air_date\n      episode\n      characters {\n        id\n        name\n        image\n        species\n        gender\n        origin {\n          name\n        }\n      }\n    }\n  }\n}",
+): (typeof documents)["query getEpisode($episode: String!) {\n  episodes(filter: {episode: $episode}) {\n    results {\n      id\n      name\n      air_date\n      episode\n      characters {\n        id\n        name\n        image\n        species\n        gender\n        origin {\n          name\n        }\n      }\n    }\n  }\n}"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

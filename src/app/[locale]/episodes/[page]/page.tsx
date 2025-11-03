@@ -5,12 +5,12 @@ import { getClient } from "@lib/apolloClient";
 export const revalidate = 86400;
 
 export async function generateStaticParams() {
-  const { data } = await getClient().query({
+  const { data, error } = await getClient().query({
     query: GetEpisodesDocument,
     variables: { page: 1 },
   });
   const pages = data?.episodes?.info?.pages;
-  if (!pages) return [];
+  if (error || !pages) return [];
 
   return Array.from({ length: pages }, (_, i) => ({
     page: String(i + 1),

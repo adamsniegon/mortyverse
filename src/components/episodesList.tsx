@@ -38,8 +38,8 @@ export default async function EpisodesList({ page }: Props) {
           <li key={episode?.id}>
             <Link
               href={{
-                pathname: "/episode/[part]",
-                params: { part: episode?.episode ?? "" },
+                pathname: "/episode/[code]",
+                params: { code: episode?.episode ?? "" },
               }}
             >
               <EpisodeCard
