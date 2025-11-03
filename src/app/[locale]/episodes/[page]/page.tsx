@@ -1,6 +1,7 @@
 import EpisodesList from "@components/episodesList";
 import { GetEpisodesDocument } from "@graphql/generated/graphql";
 import { getClient } from "@lib/apolloClient";
+import { setRequestLocale } from "next-intl/server";
 
 export const revalidate = 86400;
 
@@ -20,9 +21,10 @@ export async function generateStaticParams() {
 export default async function EpisodesPage({
   params,
 }: {
-  params: Promise<{ page: string }>;
+  params: Promise<{ locale: string; page: string }>;
 }) {
-  const { page: pageParam = 1 } = await params;
+  const { locale, page: pageParam = 1 } = await params;
+  setRequestLocale(locale);
   const page = Number(pageParam);
   return <EpisodesList page={page} />;
 }

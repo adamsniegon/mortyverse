@@ -8,7 +8,7 @@ import { getClient, query } from "@lib/apolloClient";
 import Container from "@ui/container";
 import Typography from "@ui/typography";
 import { formatDate } from "@utils/formatDate";
-import { getLocale, getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Character from "@ui/character";
@@ -30,12 +30,11 @@ export async function generateStaticParams() {
 export default async function EpisodePage({
   params,
 }: {
-  params: Promise<{ code: string }>;
+  params: Promise<{ locale: string; code: string }>;
 }) {
-  const { code } = await params;
-  const t = await getTranslations("episode");
-  const locale = await getLocale();
+  const { locale, code } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("episode");
 
   const { data, error } = await query<
     GetEpisodeQuery,

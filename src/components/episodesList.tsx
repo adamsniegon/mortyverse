@@ -27,7 +27,6 @@ export default async function EpisodesList({ page }: Props) {
   if (error) {
     return null;
   }
-  console.log(locale);
 
   const totalPages = data?.episodes?.info?.pages ?? 1;
 
