@@ -7,8 +7,6 @@ import { addEpisodeComment } from "@utils/addEpisodeComment";
 import { commentSchema } from "@validation/comment";
 import { revalidatePath } from "next/cache";
 import z from "zod";
-import { JSDOM } from "jsdom";
-import DOMPurify from "dompurify";
 
 export const addComment = async (
   prevState: ICommentFormState,
@@ -34,16 +32,11 @@ export const addComment = async (
     };
   }
 
-  const window = new JSDOM("").window;
-  const purify = DOMPurify(window);
-
   const comment: IComment = {
     id: crypto.randomUUID(),
-    nickname: parsedData.data.nickname
-      ? purify.sanitize(parsedData.data.nickname)
-      : null,
-    email: purify.sanitize(parsedData.data.email),
-    message: purify.sanitize(parsedData.data.message),
+    nickname: parsedData.data.nickname ? parsedData.data.nickname : null,
+    email: parsedData.data.email,
+    message: parsedData.data.message,
     consent: parsedData.data.consent ?? false,
     createdAt: new Date().toISOString(),
   };
