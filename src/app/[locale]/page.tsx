@@ -1,3 +1,13 @@
-export default function Home() {
-  return <div></div>;
+import EpisodesList from "@components/episodesList";
+import { setRequestLocale } from "next-intl/server";
+
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  return <EpisodesList page={1} />;
 }

@@ -5,13 +5,14 @@ import {
   GetEpisodeQueryVariables,
 } from "@graphql/generated/graphql";
 import { getClient, query } from "@lib/apolloClient";
-import Container from "@ui/container";
 import Typography from "@ui/typography";
 import { formatDate } from "@utils/formatDate";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import Character from "@ui/character";
+import CommentList from "@components/commentList";
+import CommentForm from "@components/commentForm";
 
 export const revalidate = 86400;
 
@@ -48,7 +49,7 @@ export default async function EpisodePage({
   if (error || !episode) notFound();
 
   return (
-    <Container>
+    <>
       <div className="relative grid gap-4 border p-8 py-16 md:p-12 md:py-24 lg:p-16 lg:py-32 rounded-lg shadow-xl overflow-hidden">
         <Typography className="text-background z-2" variant="h1">
           {episode.name}
@@ -64,18 +65,44 @@ export default async function EpisodePage({
         />
         <div className="absolute w-full h-full top-0 left-0 bg-linear-to-r from-neutral-950 z-1"></div>
       </div>
-      <div className="grid gap-8">
-        {episode.characters.map((character) => (
-          <Character
-            key={character?.id}
-            name={character?.name}
-            image={character?.image}
-            species={`${t("species")}: ${character?.species}`}
-            gender={`${t("gender")}: ${character?.gender}`}
-            origin={`${t("origin")}: ${character?.origin?.name}`}
-          />
-        ))}
+      <div className="grid lg:grid-cols-2 items-start gap-8">
+        <div className="grid gap-8 py-8">
+          <Typography variant="h3" as="h2">
+            {t("characters")}
+          </Typography>
+          <div className="grid gap-2">
+            {episode.characters.map((character) => (
+              <Character
+                key={character?.id}
+                name={character?.name}
+                image={character?.image}
+                species={`${t("species")}: ${character?.species}`}
+                gender={`${t("gender")}: ${character?.gender}`}
+                origin={`${t("origin")}: ${character?.origin?.name}`}
+              />
+            ))}
+          </div>
+        </div>
+        <div className="grid gap-8 py-8">
+          <Typography variant="h3" as="h2">
+            {t("comments")}
+          </Typography>
+          <div className="grid items-start gap-16">
+            <div className="grid gap-8 rounded-lg">
+              <Typography variant="h5" as="h3">
+                {t("newComment")}
+              </Typography>
+              <CommentForm episodeCode={episode.episode ?? ""} />
+            </div>
+            <div className="grid gap-8 rounded-lg">
+              <Typography variant="h5" as="h3">
+                {t("allComments")}
+              </Typography>
+              <CommentList code={episode.episode ?? ""} />
+            </div>
+          </div>
+        </div>
       </div>
-    </Container>
+    </>
   );
 }

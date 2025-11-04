@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Orbitron } from "next/font/google";
+import { Anta } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@i18n/routing";
 import { notFound } from "next/navigation";
@@ -9,9 +9,10 @@ import { ApolloWrapper } from "@lib/apolloWrapper";
 import "./globals.css";
 import { ReactNode } from "react";
 
-const orbitronSans = Orbitron({
-  variable: "--font-orbitron-sans",
+const antaSans = Anta({
+  variable: "--font-anta-sans",
   subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -39,11 +40,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${orbitronSans.variable} antialiased`}>
+      <body className={`${antaSans.variable} antialiased`}>
         <NextIntlClientProvider>
           <ApolloWrapper>
             <Header />
-            {children}
+            <div className="pb-8">{children}</div>
           </ApolloWrapper>
         </NextIntlClientProvider>
       </body>

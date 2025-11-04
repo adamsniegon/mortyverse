@@ -1,0 +1,25 @@
+{
+  "comment": {
+    "fields": {
+      "nickname": "Přezdívka (nepovinné)",
+      "email": "E-mail",
+      "message": "Zpráva",
+      "consent": "Souhlasím se zveřejněním mého komentáře"
+    },
+    "submit": "Odeslat",
+    "messages": {
+      "error": {
+        "title": "Jejda... něco se pokazilo",
+        "description": "Při odesílání došlo k chybě. Zkontrolujte formulář a zkuste to prosím znovu."
+      },
+      "success": {
+        "title": "Úspěch!",
+        "description": "Váš komentář byl úspěšně přidán."
+      },
+      "nicknameIsLong": "Přezdívka může mít maximálně 50 znaků.",
+      "emailIsInvalid": "Prosím zadejte platnou e-mailovou adresu.",
+      "messageIsEmpty": "Prosím napište zprávu.",
+      "messageIsLong": "Zpráva může mít maximálně 1000 znaků."
+    }
+  }
+}

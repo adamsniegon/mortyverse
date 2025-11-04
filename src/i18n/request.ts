@@ -13,6 +13,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: {
       general: (await import(`../messages/${locale}/general.json`)).default,
       episode: (await import(`../messages/${locale}/episode.json`)).default,
+      form: (await import(`../messages/${locale}/form.json`)).default,
     },
   };
 });

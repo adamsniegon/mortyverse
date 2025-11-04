@@ -1,0 +1,25 @@
+{
+  "comment": {
+    "fields": {
+      "nickname": "Nickname (optional)",
+      "email": "E-mail",
+      "message": "Message",
+      "consent": "I agree to publish my comment"
+    },
+    "submit": "Submit",
+    "messages": {
+      "error": {
+        "title": "Oops... something went wrong",
+        "description": "There was a problem with your submission. Please check the form and try again."
+      },
+      "success": {
+        "title": "Success!",
+        "description": "Your comment was send successfully."
+      },
+      "nicknameIsLong": "Nickname must be at most 50 characters.",
+      "emailIsInvalid": "Please enter a valid email address.",
+      "messageIsEmpty": "Please enter a message.",
+      "messageIsLong": "Message must be at most 1000 characters."
+    }
+  }
+}

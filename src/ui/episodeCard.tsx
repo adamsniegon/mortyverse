@@ -21,7 +21,7 @@ export default function EpisodeCard({
   return (
     <div
       className={cn(
-        "grid gap-4 p-12 lg:p-16 border rounded-xl shadow-md",
+        "grid gap-4 p-8 lg:p-12 border rounded-xl shadow-md",
         className,
       )}
       {...props}

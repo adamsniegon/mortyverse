@@ -1,5 +1,13 @@
 {
-    "species": "Species",
-    "gender": "Gender",
-    "origin": "Origin"
+  "species": "Species",
+  "gender": "Gender",
+  "origin": "Origin",
+  "comments": "Comments",
+  "newComment": "New comment",
+  "allComments": "All comments",
+  "noComments": {
+    "title": "No comments yet",
+    "description": "Be the first to share your thoughts! Leave a comment and start the conversation."
+  },
+  "characters": "Characters"
 }
