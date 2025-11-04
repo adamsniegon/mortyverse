@@ -26,13 +26,10 @@ export default function Character({
   ...props
 }: ICharacterEpiodeCard) {
   return (
-    <div
-      className={cn("p-4 rounded-lg hover:bg-primary/10", className)}
-      {...props}
-    >
+    <div className={cn("rounded-lg hover:bg-primary/10", className)} {...props}>
       <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="flex items-center">
+        <AccordionItem value={`item-${name}`}>
+          <AccordionTrigger className="flex items-center p-2">
             <div className="flex items-center gap-4">
               <div className="relative w-12 h-12 rounded-lg overflow-hidden">
                 <Image
@@ -45,8 +42,8 @@ export default function Character({
               <Typography>{name}</Typography>
             </div>
           </AccordionTrigger>
-          <AccordionContent>
-            <div>
+          <AccordionContent className="p-0">
+            <div className="p-4">
               <Typography>{species}</Typography>
               <Typography>{gender}</Typography>
               <Typography>{origin}</Typography>

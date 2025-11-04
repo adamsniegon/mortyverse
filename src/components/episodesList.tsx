@@ -5,10 +5,11 @@ import {
   GetEpisodesQuery,
   GetEpisodesQueryVariables,
 } from "@graphql/generated/graphql";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@i18n/navigation";
 import EpisodeCard from "@ui/episodeCard";
 import Container from "@ui/container";
+import Typography from "@ui/typography";
 
 interface Props {
   page: number;
@@ -16,6 +17,7 @@ interface Props {
 
 export default async function EpisodesList({ page }: Props) {
   const locale = await getLocale();
+  const t = await getTranslations("general");
   const { data, error } = await query<
     GetEpisodesQuery,
     GetEpisodesQueryVariables
@@ -31,8 +33,11 @@ export default async function EpisodesList({ page }: Props) {
   const totalPages = data?.episodes?.info?.pages ?? 1;
 
   return (
-    <Container>
-      <ul className="grid gap-8">
+    <Container className="grid gap-8">
+      <Typography variant="h3" as="h1">
+        {t("episodes")}
+      </Typography>
+      <ul className="grid gap-4">
         {data?.episodes?.results?.map((episode) => (
           <li key={episode?.id}>
             <Link

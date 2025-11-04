@@ -1,5 +1,13 @@
 {
-    "species": "Druh",
-    "gender": "Pohlaví",
-    "origin": "Původ"
+  "species": "Druh",
+  "gender": "Pohlaví",
+  "origin": "Původ",
+  "comments": "Příspěvky",
+  "newComment": "Nový příspěvek",
+  "allComments": "Všechny příspěvky",
+  "noComments": {
+    "title": "Zatím žádé příspěvky.",
+    "description": "Buďte první, kdo se podělí o svůj názor! Napište komentář a spusťte diskuzi."
+  },
+  "characters": "Postavy"
 }
